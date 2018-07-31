@@ -1,0 +1,17 @@
+{
+  "name": "tinyrobot-science-api",
+  "version": "1.0.0",
+  "description": "Node.js API for 🤖🔬 tinyrobot.science",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mars Hall",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "hipku": "^2.0.0"
+  }
+}
