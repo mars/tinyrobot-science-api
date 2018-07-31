@@ -29,9 +29,9 @@ if (!dev && cluster.isMaster) {
   }
 
   // Answer API requests.
-  app.post('/hipku', function (req, res) {
-    console.log(`Hipku for ${req.ip}`)
-    res.json({ hipku: Hipku.encode(req.ip) });
+  app.post('/hipku/:ipAddress', function (req, res) {
+    console.log(`Hipku for ${req.params.ipAddress}`)
+    res.json({ hipku: Hipku.encode(req.params.ipAddress) });
   });
 
   app.listen(port, function () {
