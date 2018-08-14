@@ -2,6 +2,13 @@
 
 Built with [Express.js](https://expressjs.com) on Heroku.
 
+
+### Part of a reference suite
+
+| [Terraform config](https://github.com/mars/tinyrobot-science-terraform) | [Web UI](https://github.com/mars/tinyrobot-science-web-ui) | API |
+|-----------|------------|---------|
+| infrastructure | front-end app | backend app (this repo) |
+
 ## Requires
 
 * Heroku
