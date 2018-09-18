@@ -1,4 +1,6 @@
 const express = require('express');
+const logger = require('morgan');
+const uuid = require('node-uuid');
 const cors = require('cors');
 const cluster = require('cluster');
 const numCPUs = require('os').cpus().length;
@@ -27,6 +29,12 @@ if (!dev && cluster.isMaster) {
   if (!dev) {
     app.enable('trust proxy', 'uniquelocal');
   }
+
+  // Use Heroku's request ID (or a new UUID)
+  // https://devcenter.heroku.com/articles/http-request-id
+  logger.token('id', req => req.get('X-Request-ID') || uuid.v4() );
+  app.use(logger(':id :remote-addr :date[iso] :method :url '
+    +'HTTP/:http-version :status :response-time ms - :res[content-length]'));
 
   // Answer API requests.
   app.post('/hipku/:ipAddress', function (req, res) {
